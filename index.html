@@ -9,9 +9,11 @@
             background-color: #fdf0cd;
             margin: 0;
             display: flex;
+            height: 100vh;
+        }
+        #blame {
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
         img {
             max-width: 90%;
@@ -27,8 +29,8 @@
     </style>
 </head>
 <body>
-    <div><p><marquee behavior="scroll" direction="left" scrollamount="5"><font color="#00FF00" size="5" face="Comic Sans MS"><b>⚡⚡ ALWAYS BLAME JOSE!!! ALWAYS !!! ⚡⚡</b></font></marquee></p></div>
-    <div><img src="blamejose.jpeg" alt="Blame Jose"></div>
+    <marquee behavior="scroll" direction="left" scrollamount="5"><font color="#00FF00" size="5" face="Comic Sans MS"><b>⚡⚡ ALWAYS BLAME JOSE!!! ALWAYS !!! ⚡⚡</b></font></marquee>
+    <div id="blame"><img src="blamejose.jpeg" alt="Blame Jose"></div>
     <img id="bounce-img" src="bouncingjose.png" alt="Bouncing Jose">
 
     <script>
