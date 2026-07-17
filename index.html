@@ -18,11 +18,66 @@
             max-height: 90vh;
             object-fit: contain;
         }
+        #bounce-img {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            user-select: none;
+        }
     </style>
 </head>
 <body>
 
     <img src="blamejose.jpeg" alt="Blame Jose">
+    <img id="bounce-img" src="bouncingjose.png" alt="Bouncing Jose">
 
+    <script>
+        const img = document.getElementById('bounce-img');
+        
+        let posX = Math.random() * (window.innerWidth - 50);
+        let posY = Math.random() * (window.innerHeight - 50);
+        
+        let speedX = 4;
+        let speedY = 4;
+
+        function updateAnimation() {
+            const imgWidth = img.offsetWidth;
+            const imgHeight = img.offsetHeight;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            posX += speedX;
+            posY += speedY;
+
+            if (posX <= 0) {
+                posX = 0;
+                speedX = -speedX;
+            } else if (posX + imgWidth >= windowWidth) {
+                posX = windowWidth - imgWidth;
+                speedX = -speedX;
+            }
+
+            if (posY <= 0) {
+                posY = 0;
+                speedY = -speedY;
+            } else if (posY + imgHeight >= windowHeight) {
+                posY = windowHeight - imgHeight;
+                speedY = -speedY;
+            }
+
+            img.style.left = posX + 'px';
+            img.style.top = posY + 'px';
+
+            requestAnimationFrame(updateAnimation);
+        }
+
+        img.onload = () => {
+            requestAnimationFrame(updateAnimation);
+        };
+        
+        if (img.complete) {
+            requestAnimationFrame(updateAnimation);
+        }
+    </script>
 </body>
 </html>
